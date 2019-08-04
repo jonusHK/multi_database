@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from secret import db_info, db2_info
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -78,33 +79,33 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'multi',
-        'USER': 'admin_wps',
-        'PASSWORD': 'goqlt5857!',
+        'NAME': db_info['name'],
+        'USER': db_info['username'],
+        'PASSWORD': db_info['password'],
         'HOST': 'multi-master.ctj0650ag7ks.ap-northeast-2.rds.amazonaws.com',
         'PORT': '5432',
     },
     'read1': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'multi',
-        'USER': 'admin_wps',
-        'PASSWORD': 'goqlt5857!',
+        'NAME': db_info['name'],
+        'USER': db_info['username'],
+        'PASSWORD': db_info['password'],
         'HOST': 'multi-read1.ctj0650ag7ks.ap-northeast-2.rds.amazonaws.com',
         'PORT': '5432',
     },
     'read2': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'multi',
-        'USER': 'admin_wps',
-        'PASSWORD': 'goqlt5857!',
+        'NAME': db_info['name'],
+        'USER': db_info['username'],
+        'PASSWORD': db_info['password'],
         'HOST': 'multi-read2.ctj0650ag7ks.ap-northeast-2.rds.amazonaws.com',
         'PORT': '5432',
     },
     'user': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'baseuser',
-        'USER': 'admin_wps',
-        'PASSWORD': 'admin12345',
+        'NAME': db2_info['name'],
+        'USER': db2_info['username'],
+        'PASSWORD': db2_info['password'],
         'HOST': 'base-user.ctj0650ag7ks.ap-northeast-2.rds.amazonaws.com',
         'PORT': '5432',
     }
